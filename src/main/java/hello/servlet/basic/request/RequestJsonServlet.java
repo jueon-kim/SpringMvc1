@@ -1,7 +1,7 @@
 package hello.servlet.basic.request;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import hello.servlet.basic.HelloDate;
+import hello.servlet.basic.HelloData;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletInputStream;
 import jakarta.servlet.annotation.WebServlet;
@@ -24,7 +24,7 @@ public class RequestJsonServlet extends HttpServlet {
         String messageBody = StreamUtils.copyToString(inputStream, StandardCharsets.UTF_8);
 
         System.out.println("messageBody = " + messageBody);
-        HelloDate helloDate = objectMapper.readValue(messageBody, HelloDate.class);
+        HelloData helloDate = objectMapper.readValue(messageBody, HelloData.class);
 
         System.out.println("helloDate.username = " + helloDate);
         System.out.println("helloData.age =" + helloDate.getAge());
